@@ -1,14 +1,13 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
     "target": "es5",
     "noImplicitAny": true,
     "strictNullChecks": true,
     "noImplicitThis": true,
+    "jsx": "react",
     "noUnusedParameters": false,
-    "noUnusedLocals": true,
-    "types": []
+    "noUnusedLocals": true
   },
   "files": ["src/index.ts"],
-  "exclude": ["node_modules", "__tests__"]
+  "exclude": ["node_modules"]
 }
