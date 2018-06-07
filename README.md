@@ -12,18 +12,18 @@ Also, arrow functions and event handler creator return a new function. So on eve
 
 Just wrap the component with `Reflow` and stop unnecessary render cycles.
 
-# Overview
-
-## Props
+# Props
 
 | Prop    | Type                | Description                                            |
 | ------- | ------------------- | ------------------------------------------------------ |
 | trigger | `any | undefined`   | The value that triggers the rerender                   |
 | oneOf   | `any[] | undefined` | An array that triggers the rerender if an item changes |
 
-## Example
+# Examples
 
-## Bad update behaviour
+## trigger
+
+### Bad update behaviour
 
 Before: TextField rerenders even nothing changes.
 
@@ -39,7 +39,7 @@ After : TextField only rerenders when userName changes
 </Reflow>
 ```
 
-## Event handler creator
+### Event handler creator
 
 Before: TextField rerenders even nothing changes.
 
@@ -63,7 +63,7 @@ After : TextField only rerenders when userName changes
 </Reflow>
 ```
 
-## Arrow functions
+### Arrow functions
 
 Before: TextField rerenders even nothing changes.
 
@@ -84,5 +84,39 @@ After : TextField only rerenders when userName changes
     value={this.state.userName}
     onChanged={_ => this.handleUserNameChange(_)}
   />
+</Reflow>
+```
+
+## oneOf
+
+### Arrays
+
+Before: Items is an array. So rerenders on every render
+
+```tsx
+<List items={this.state.listItems} {...someMoreProps} />
+```
+
+After: List only rerenders if an array items changed
+
+```tsx
+<Reflow oneOf={this.state.listItems}>
+  <List items={this.state.listItems} {...someMoreProps} />
+</Reflow>
+```
+
+### Complex Arrays
+
+Before: Items is an object array. So rerenders on every render
+
+```tsx
+<List items={this.state.listItems} {...someMoreProps} />
+```
+
+After: List only rerenders if an array items changed
+
+```tsx
+<Reflow oneOf={this.state.listItems.map(x => x.key)}>
+  <List items={this.state.listItems} {...someMoreProps} />
 </Reflow>
 ```
