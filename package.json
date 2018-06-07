@@ -2,12 +2,10 @@
   "name": "react-controlled-reflow",
   "version": "0.0.1",
   "description": "Recompose wrapper. Omit redundant react rerender based on properties",
-  "main": "index.js",
-  "typings": "index.d.ts",
+  "main": "src/index.js",
+  "typings": "src/index.d.ts",
   "scripts": {
-    "tsc": "tsc -d -p .",
-    "npm": "npm run clean && tsc -d -p . && mv ./src/index.js . && mv ./src/index.d.ts .",
-    "clean": "rm -f ./src/index.js* ./__tests__/*.d.ts ./__tests__/*.js ./lcov.info  && rm -f -R ./coverage"
+    "tsc": "tsc -d -p ."
   },
   "repository": {
     "type": "git",
