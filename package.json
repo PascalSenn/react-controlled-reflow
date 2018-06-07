@@ -1,0 +1,52 @@
+{
+  "name": "react-controlled-reflow",
+  "version": "0.0.1",
+  "description": "Omit redundant react rerender.",
+  "main": "index.js",
+  "typings": "index.d.ts",
+  "scripts": {
+    "test": "tsc -p __tests__ && jest --verbose",
+    "jest-cov": "tsc --sourceMap -p __tests__ && jest --verbose --coverage --collectCoverageFrom src/index.js",
+    "map-cov": "remap-istanbul -i ./coverage/coverage-final.json -t lcovonly -o ./lcov.info",
+    "report-cov": "codeclimate-test-reporter < ./lcov.info",
+    "coverage": "npm run jest-cov && npm run map-cov && npm run report-cov",
+    "npm": "npm run clean && tsc -d -p . && mv ./src/index.js . && mv ./src/index.d.ts .",
+    "clean": "rm -f ./src/index.js* ./__tests__/*.d.ts ./__tests__/*.js ./lcov.info  && rm -f -R ./coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PascalSenn/react-controlled-reflow.git"
+  },
+  "keywords": [
+    "react",
+    "rerender",
+    "render",
+    "reflow",
+    "performance"
+  ],
+  "author": "Pascal Senn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PascalSenn/react-controlled-reflow/issues"
+  },
+  "homepage": "https://github.com/PascalSenn/react-controlled-reflow#readme",
+  "peerDependencies": {
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0"
+  },
+  "dependencies": {
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.0.0",
+    "@types/react": "^16.3.16",
+    "@types/react-dom": "^16.0.6",
+    "codeclimate-test-reporter": "^0.5.0",
+    "jest": "^23.1.0",
+    "prettier": "^1.13.4",
+    "remap-istanbul": "^0.11.1",
+    "tslint": "^5.10.0",
+    "typescript": "^2.9.1"
+  }
+}
