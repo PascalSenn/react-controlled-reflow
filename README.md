@@ -1,16 +1,51 @@
 # react-controlled-reflow
 
-Reflow is a simple wrapper component that only updates if the input changes.
+Reflow is a wrapper for react components that gives you control over render updates.
+You are smarter than react. Only you know what really needs to updates the UI.
 
 Simple as that. Nothing more.
 
-## But why
+## But why?!
 
-There are many libraries out there that have a terrible rerender behaviour.
+### 1. There are many libraries out there that have a terrible rerender behaviour.
 
-Also, arrow functions and event handler creator return a new function. So on every parent render the component gets rerendered.
+Fact.
 
-Just wrap the component with `Reflow` and stop unnecessary render cycles.
+### 2. Arrow function updates render
+
+```js
+> (val) => this.setState({ name: val }) !== (val) => this.setState({ name: val })
+> true
+```
+
+### 3. Event handler creator updates render
+
+```js
+> const createHandlerFor = (property) => (value) =>  this.setState({[property]: value})
+>
+> createHandlerFor("username") !== createHandlerFor("username")
+> true
+```
+
+### 4. Arrays
+
+```js
+>   ["foo", "bar"] !== ["foo", "bar"]
+> true
+```
+
+### 5. Config Objects
+
+```js
+>   {borderColor: "red" } !== {borderColor: "red" }
+> true
+```
+
+
+
+This issues in a massive overhead. A form usually doesn't have to rerender totally if the state changes.
+
+Just wrap the component with `Reflow` and stop unnecessary render cycles. 
 
 # Props
 
