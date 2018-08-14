@@ -1,6 +1,6 @@
 {
   "name": "react-controlled-reflow",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Reflow is a wrapper for react components that gives you control over render updates.",
   "main": "src/index.js",
   "typings": "src/index.d.ts",
@@ -26,13 +26,13 @@
   },
   "homepage": "https://github.com/PascalSenn/react-controlled-reflow#readme",
   "devDependencies": {
-    "tslint": "^5.10.0",
-    "typescript": "^2.9.1",
-    "@types/react": "^16.3.16",
-    "@types/recompose": "^0.26.1"
+    "tslint": "^5.11.0",
+    "typescript": "^3.0.1",
+    "@types/react": "^16.4.10",
+    "@types/recompose": "^0.26.4"
   },
   "dependencies": {
-    "react": "^16.4.0",
-    "recompose": "^0.27.1"
+    "react": ">=16.4.0",
+    "recompose": ">=0.28.2"
   }
 }

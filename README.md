@@ -1,7 +1,7 @@
 # react-controlled-reflow
 
 Reflow is a wrapper for react components that gives you control over render updates.
-You are smarter than react. Only you know what really needs to updates the UI.
+You are smarter than react. Only you know what really needs to update the UI.
 
 Simple as that. Nothing more.
 
@@ -43,7 +43,7 @@ Fact.
 
 
 
-This issues in a massive overhead. A form usually doesn't have to rerender totally if the state changes.
+This issues in a massive overhead. A form usually doesn't have to rerender totally when the state changes.
 
 Just wrap the component with `Reflow` and stop unnecessary render cycles. 
 
